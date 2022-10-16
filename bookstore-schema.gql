@@ -1,0 +1,40 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query {
+    getAuthors: [String]
+    getAuthorsByName(name: String):[String]
+    getBooks: [Book]
+    getName: String
+    getFavFoods:[Food]
+    getFoodList:[String]
+    getPlus(x:Int,y:Int): Int
+}
+
+type Mutation {
+    addBook(book: BookIn): Book
+}
+
+type Book {
+    id: ID
+    title: String
+    year: Int
+    author: String
+    isbn: String
+    pages: Int
+}
+type Food {
+    id: ID
+    dish: String
+    price: Int
+    style: String
+}
+
+input BookIn {
+    title: String
+    year: Int
+    author: String
+    isbn: String
+}
